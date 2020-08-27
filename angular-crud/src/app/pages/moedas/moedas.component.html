@@ -5,12 +5,45 @@
   </div>
 </div>
 
-<h1>{{ listPrice.ticker | json }}</h1>
+<!--<h1>{{ listPrice.ticker | json }}</h1>-->
+<!--<h1>{{ listOrder.asks | json }}</h1>-->
 
 <ul class="list-group">
-  <li class="list-group-item">{{ listPrice.ticker.high }}</li>
-  <li class="list-group-item">Dapibus ac facilisis in</li>
-  <li class="list-group-item">Morbi leo risus</li>
-  <li class="list-group-item">Porta ac consectetur ac</li>
-  <li class="list-group-item">Vestibulum at eros</li>
+  <li class="list-group-item">Maior preço nas últimas 24 horas: <strong>{{ listPrice.ticker.high }}</strong></li>
+  <li class="list-group-item">Menor preço nas últimas 24 horas: <strong>{{ listPrice.ticker.low }}</strong></li>
+  <li class="list-group-item">Volume negociado nas últimas 24 horas: <strong>{{ listPrice.ticker.vol }}</strong></li>
+  <li class="list-group-item">Preço unitário da última negociação: <strong>{{ listPrice.ticker.last }}</strong></li>
+  <li class="list-group-item">Maior preço de oferta de compra das últimas 24 horas: <strong>{{ listPrice.ticker.buy }}</strong></li>
+  <li class="list-group-item">Menor preço de oferta de venda das últimas 24 horas: <strong>{{ listPrice.ticker.sell }}</strong></li>
+</ul>
+
+<!--<ul class="list-group list-group-horizontal-sm">
+  <li class="list-group-item">Preço de compra: {{listOrder.asks[0]}}</li>
+  <li class="list-group-item">Quantidade de compra: {{listOrder.asks[1]}}</li>
+  <li class="list-group-item">Preço de Venda: {{listOrder.bids[0]}}</li>
+  <li class="list-group-item">Quantidade de Venda: {{listOrder.bids[1]}}</li>
+</ul>-->
+
+<ul class="nav nav-justified">
+  <li class="nav-item">
+
+    <ul class="list-group list-group-horizontal-sm">
+      <li class="list-group-item alert alert-success" role="alert">ÚLTIMAS 1000 COMPRAS</li>
+      <span *ngFor="let item of listOrder.asks">
+        <li class="list-group-item listaOrderBookTexto">Preço de compra: <strong class="listaOrderBookItem">{{item[0]}}</strong></li>
+        <li class="list-group-item listaOrderBookTexto">Quantidade de compra: <strong class="listaOrderBookItem">{{item[1]}}</strong></li>
+      </span>
+    </ul>
+
+  </li>
+  <li class="nav-item">
+    <ul class="list-group list-group-horizontal-sm">
+      <li class="list-group-item alert alert-danger" role="alert">ÚLTIMAS 1000 VENDAS</li>
+      <span *ngFor="let item of listOrder.bids">
+        <li class="list-group-item listaOrderBookTexto">Preço de Venda: <strong class="listaOrderBookItem">{{item[0]}}</strong></li>
+        <li class="list-group-item listaOrderBookTexto">Quantidade de Venda: <strong class="listaOrderBookItem">{{item[1]}}</strong></li>
+      </span>
+    </ul>
+
+  </li>
 </ul>

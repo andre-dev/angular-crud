@@ -15,4 +15,9 @@ export class MoedasService {
     console.log(`${Endpoints.coins}${type}/ticker/`);
     return this.http.get<any>(`${Endpoints.coins}${type}/ticker/`);
   }
+
+  public getOrderbook(type: string) {
+    console.log(`${Endpoints.coins}${type}/orderbook/`);
+    return this.http.get<any>(`${Endpoints.coins}${type}/orderbook/`);
+  }
 }

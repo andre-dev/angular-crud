@@ -10,3 +10,8 @@ export class Coins {
     date: number;
   }
 }
+
+export class Order {
+    asks: string;
+    bids: string;
+}

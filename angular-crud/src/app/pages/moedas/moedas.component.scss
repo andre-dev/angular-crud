@@ -1,0 +1,11 @@
+$alinhaTextoEsquerda:  left;
+$alinhaItemDireita:  80%;
+
+.listaOrderBookTexto{
+  text-align: $alinhaTextoEsquerda;
+}
+
+.listaOrderBookItem{
+  padding-left: $alinhaItemDireita;
+}
+
