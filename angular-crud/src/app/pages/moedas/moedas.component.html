@@ -17,17 +17,27 @@
   <li class="list-group-item">Menor preço de oferta de venda das últimas 24 horas: <strong>{{ listPrice.ticker.sell }}</strong></li>
 </ul>
 
-<!--<ul class="list-group list-group-horizontal-sm">
-  <li class="list-group-item">Preço de compra: {{listOrder.asks[0]}}</li>
-  <li class="list-group-item">Quantidade de compra: {{listOrder.asks[1]}}</li>
-  <li class="list-group-item">Preço de Venda: {{listOrder.bids[0]}}</li>
-  <li class="list-group-item">Quantidade de Venda: {{listOrder.bids[1]}}</li>
-</ul>-->
+<br>
 
 <ul class="nav nav-justified">
   <li class="nav-item">
 
-    <ul class="list-group list-group-horizontal-sm">
+    <ul class="list-group-item list-group-item-info">
+      <li class="list-group-item alert alert-success" role="alert">SELECIONE SUA MOEDA</li>
+      <select class="browser-default custom-select" (change)="selecionouMoeda($event)">
+        <option *ngFor="let item of moedas">{{item}}</option> <!--Pega o index do item: ; let i = index-->
+      </select>
+    </ul>
+
+  </li>
+</ul>
+
+<br>
+
+<ul class="nav nav-justified">
+  <li class="nav-item">
+
+    <ul class="list-group-item list-group-item-success">
       <li class="list-group-item alert alert-success" role="alert">ÚLTIMAS 1000 COMPRAS</li>
       <span *ngFor="let item of listOrder.asks">
         <li class="list-group-item listaOrderBookTexto">Preço de compra: <strong class="listaOrderBookItem">{{item[0]}}</strong></li>
@@ -37,7 +47,7 @@
 
   </li>
   <li class="nav-item">
-    <ul class="list-group list-group-horizontal-sm">
+    <ul class="list-group-item list-group-item-danger">
       <li class="list-group-item alert alert-danger" role="alert">ÚLTIMAS 1000 VENDAS</li>
       <span *ngFor="let item of listOrder.bids">
         <li class="list-group-item listaOrderBookTexto">Preço de Venda: <strong class="listaOrderBookItem">{{item[0]}}</strong></li>
